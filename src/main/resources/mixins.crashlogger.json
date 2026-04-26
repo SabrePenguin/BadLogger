@@ -2,12 +2,15 @@
 	"package": "com.sabrepenguin.crashlogger.mixin",
 	"required": true,
 	"refmap": "mixins.crashlogger.refmap.json",
+    "plugin": "com.sabrepenguin.crashlogger.mixin.MixinPlugin",
 	"target": "@env(DEFAULT)",
 	"minVersion": "0.8.5",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [],
 	"server": [],
 	"client": [
-      "MixinGLManager"
+      "MixinGLManager",
+      "MixinGL11",
+      "MixinGL11C"
     ]
 }

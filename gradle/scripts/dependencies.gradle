@@ -65,4 +65,7 @@ dependencies {
     // implementation ('com.google.code.gson:gson:2.8.6') {
     //     transitive = false
     // }
+
+    compileOnly "org.lwjgl:lwjgl:3.3.1"
+    compileOnly "org.lwjgl:lwjgl-opengl:3.3.1"
 }

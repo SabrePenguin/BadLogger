@@ -9,11 +9,13 @@ import java.nio.channels.FileChannel;
 
 public class LogFileManager {
 	private static final MappedByteBuffer crashBuffer;
-	private static final int MAX_FUNCS = 1;
+	private static final int MAX_FUNCS = 2;
 	public static final String[] MESSAGES = {
-			"GlStateManager has crashed"
+			"GlStateManager has crashed",
+			"GL11.glCallList has crashed"
 	};
 	public static final int FLAG_GL_CLEAR = 0;
+	public static final int FLAG_GL_CLEAR_HEAD = 1;
 
 	static {
 		try (RandomAccessFile raFile = new RandomAccessFile(new File("crash_states.bin"), "rw")) {
