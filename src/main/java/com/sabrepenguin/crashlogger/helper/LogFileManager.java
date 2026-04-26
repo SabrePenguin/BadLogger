@@ -25,9 +25,10 @@ public class LogFileManager {
 			boolean crashFound = false;
 			for (int i = 0; i < MAX_FUNCS; i++) {
 				if (crashBuffer.get(i) == (byte) 1) {
-					if (crashFound) {
+					if (!crashFound) {
 						if (output.exists())
 							output.delete();
+						appendToLog(output, String.valueOf(System.currentTimeMillis()));
 					}
 					crashFound = true;
 					appendToLog(output, MESSAGES[i]);
@@ -39,8 +40,8 @@ public class LogFileManager {
 	}
 
 	public static void appendToLog(File output, String message) {
-		try (FileWriter writer = new FileWriter(output)) {
-			writer.append(message);
+		try (FileWriter writer = new FileWriter(output, true)) {
+			writer.append(message).append("\n");
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
